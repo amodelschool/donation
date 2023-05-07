@@ -4,7 +4,7 @@ import type { NextPage } from "next";
 import { CardanoWallet, useWallet } from '@meshsdk/react';
 import { Transaction } from '@meshsdk/core';
 
-const Home: NextPage = () => {
+const Donate: NextPage = () => {
 	const { connected, wallet } = useWallet();
 	const [assets, setAssets] = useState<null | any>(null);
 	const [loading, setLoading] = useState<boolean>(false);
@@ -102,6 +102,7 @@ const Home: NextPage = () => {
 			{(!connected && !showComplete) && (
 				<>
 				<h2 className="thin">Connect your Cardano wallet to make a donation.</h2>
+				<p>A Cardano wallet extension and Chrome-based browser is required.</p>
 				</>
 			)}
 
@@ -141,4 +142,4 @@ const Home: NextPage = () => {
 	);
 };
 
-export default Home;
+export default Donate;
