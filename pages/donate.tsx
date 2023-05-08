@@ -87,6 +87,7 @@ const Donate: NextPage = () => {
 		<div className="container">
 			<Head>
 			<title>MCA Cardano Donations</title>
+			<link rel="shortcut icon" href="/static/favicon.ico" />
 			<link
 				href="https://meshjs.dev/css/template.css"
 				rel="stylesheet"
