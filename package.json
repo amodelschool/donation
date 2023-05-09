@@ -1,6 +1,6 @@
 {
   "name": "mcacardano",
-  "description": "A Mesh starter template",
+  "description": "MCA Cardano applications",
   "version": "0.1.0",
   "private": true,
   "author": "MeshJS",
@@ -12,6 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@harmoniclabs/plu-ts": "^0.4.0-dev1",
     "@meshsdk/core": "1.5.2",
     "@meshsdk/react": "1.1.7",
     "next": "^13.0.2",
