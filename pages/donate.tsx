@@ -3,6 +3,7 @@ import { useState } from "react";
 import type { NextPage } from "next";
 import { CardanoWallet, useWallet } from '@meshsdk/react';
 import { Transaction } from '@meshsdk/core';
+import { receivingAddresses } from "../src/offchain/receivingAddresses";
 
 const Donate: NextPage = () => {
 	const { connected, wallet } = useWallet();
@@ -34,7 +35,7 @@ const Donate: NextPage = () => {
 			const tx = new Transaction({ initiator: wallet })
 				.sendLovelace(
 					// Mainnet MCA Treasury Account
-					'addr1q8tytnpwzzk4u3q9vg2gwht2lh8egmdrap02qlxz3x32z3zkndgvuql6gynlq7mlv5geelcz83lzvjer59cpc3zmpu0q29f7x4',
+					receivingAddresses.mainMcaTreasury,
 					totalLovelace.toString()
 				)
 			;
@@ -58,48 +59,48 @@ const Donate: NextPage = () => {
 			</Head>
 
 			<main className="main">
-			<h1 className="title">
-				Musawenkosi Christian Academy
-			</h1>
+				<h1 className="title">
+					Musawenkosi Christian Academy
+				</h1>
 
-			{(!connected && !showComplete) && (
-				<>
-				<h2 className="thin">Connect your Cardano wallet to make a donation.</h2>
-				<p>A Cardano wallet extension and Chrome-based browser is required.</p>
-				</>
-			)}
+				{(!connected && !showComplete) && (
+					<>
+						<h2 className="thin">Connect your Cardano wallet to make a donation.</h2>
+						<p>A Cardano wallet extension and Chrome-based browser are required.</p>
+					</>
+				)}
 
-			{(connected && !showComplete) && (
-				<>
-				<h2 className="thin">Make a donation to our school.</h2>
-				</>
-			)}
+				{(connected && !showComplete) && (
+					<>
+						<h2 className="thin">Make a donation to our school.</h2>
+					</>
+				)}
 
-			{showComplete && (
-				<>
-				<h2 className="thin">Thank you for your donation.</h2>
-				</>
-			)}
+				{showComplete && (
+					<>
+						<h2 className="thin">Thank you for your donation.</h2>
+					</>
+				)}
 
-			{!showComplete && (
-				<div className="demo">
-					<CardanoWallet />
-				</div>
-			)}
-			
+				{!showComplete && (
+					<div className="demo">
+						<CardanoWallet />
+					</div>
+				)}
+				
 
-			{(connected && !showComplete) && (
-				<>
-				<form onSubmit={handleSubmit}>
-					<label>
-						Please enter the amount you would like to donate.
-						<p><input className="amount" type="number" placeholder="ADA" value={amount} onChange={handleAmountChange} /></p>
-						
-					</label>
-					<button type="submit">Donate</button>
-				</form>
-				</>
-			)}
+				{(connected && !showComplete) && (
+					<>
+						<form onSubmit={handleSubmit}>
+							<label>
+								Please enter the amount you would like to donate.
+								<p><input className="amount" type="number" placeholder="ADA" value={amount} onChange={handleAmountChange} /></p>
+								
+							</label>
+							<button type="submit">Donate</button>
+						</form>
+					</>
+				)}
 			</main>
 		</div>
 	);
