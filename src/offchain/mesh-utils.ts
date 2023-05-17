@@ -6,7 +6,7 @@ function toPlutsValue( units: Asset[] ): Value
 {
 	return units.map(({ unit, quantity }): Value => {
 
-		if( unit.length === 0 || unit === 'lovelace' )
+		if ( unit.length === 0 || unit === 'lovelace' )
 		{
 			return Value.lovelaces( BigInt( quantity ) );
 		}

@@ -1,20 +1,45 @@
-import { Button, useToast } from "@chakra-ui/react";
-import { CardanoWallet, useWallet } from "@meshsdk/react";
-import Head from "next/head";
-import { lockTx } from "../src/offchain/lockTx";
-import { unlockTx } from "../src/offchain/unlockTx";
+import { Button, useToast } from '@chakra-ui/react';
+import { CardanoWallet, useWallet } from '@meshsdk/react';
+import Head from 'next/head';
+import { useState } from "react";
+import { lockTx } from '../src/offchain/lockTx';
+import { network } from '../src/offchain/config';
 
 export default function Home()
 {
 	const { wallet, connected } = useWallet();
 	const toast = useToast();
+	const cardanoscanPrefix = network.toString() === 'mainnet' ? '' : 'preprod.';
+	const [showComplete, setShowComplete] = useState<boolean>(false);
+	const [loading, setLoading] = useState<boolean>(false);
+	const [amount, setAmount] = useState('');
+
+	const handleAmountChange = (event:any) => {
+		const value = event.target.value;
+		if (!isNaN(value)) {
+			setAmount(value);
+		}
+	}
+
+	const handleSubmit = (event:any) => {
+		event.preventDefault();
+		getAssets();
+	}
+
+	async function getAssets() {
+		if (wallet) {
+			setLoading(true);
+			setShowComplete(true);
+		}
+	}
 
 	function onLock()
 	{
-		lockTx( wallet )
+		localStorage.setItem('amount', amount);
+		lockTx( wallet, amount )
 		// lock transaction created successfully
 		.then( txHash => toast({
-			title: `lock tx submitted: https://preprod.cardanoscan.io/transaction/${txHash}`,
+			title: `lock tx submitted: https://${cardanoscanPrefix}cardanoscan.io/transaction/${txHash}`,
 			status: 'success'
 		}))
 		// lock transaction failed
@@ -27,28 +52,10 @@ export default function Home()
 		});
 	}
 
-	function onUnlock()
-	{
-		unlockTx( wallet )
-		// unlock transaction created successfully
-		.then( txHash => toast({
-			title: `unlock tx submitted: https://preprod.cardanoscan.io/transaction/${txHash}`,
-			status: "success"
-		}))
-		// unlock transaction failed
-		.catch( e => {
-			toast({
-				title: `unlock transaction failed`,
-				status: "error"
-			});
-			console.error( e )
-		});
-	}
-
 	return (
-		<div className="container">
+		<div className='container'>
 			<Head>
-				<title>MCA Cardano Donations</title>
+				<title>Fund Math Improvement Program</title>
 				<link rel="shortcut icon" href="/static/favicon.ico" />
 				<link
 					href="https://meshjs.dev/css/template.css"
@@ -58,23 +65,40 @@ export default function Home()
 			</Head>
 
 			<main className="main">
-				<h1 className="title">
-					Math Improvement Program
-				</h1>
-				<h2 className="thin">Fund smart contract</h2>
+				<h1 className="title">Math Improvement Program</h1>
 
-				{/* TODO: embed ZAR (rand) to ADA currency converter */}
+				{(!connected && !showComplete) && (
+					<>
+						<h2 className="thin">Connect your Cardano wallet to fund the smart contract.</h2>
+					</>
+				)}
+
+				{(connected && !showComplete) && (
+					<>
+						<h2 className="thin">Enter the funding amount.</h2>
+					</>
+				)}
+
+				{showComplete && (
+					<>
+						<h2 className="thin">After signing, please alow a few minutes for the funding to hit the blockchain.</h2>
+					</>
+				)}
 
 				<div className="demo">
-					<CardanoWallet />
-					<br /><br />
-					{
-						connected &&
-						<>
-							<Button onClick={onLock}>Fund</Button>
-							<Button onClick={onUnlock} >Unlock</Button>
-						</>
-					}
+					{!showComplete && (
+						<CardanoWallet />
+					)}
+					
+
+					{(connected && !showComplete) && (
+						<form onSubmit={handleSubmit}>
+							<div>
+								<input className="amount" type="number" placeholder="ADA" value={amount} onChange={handleAmountChange} />
+							</div>
+							<Button type='submit' onClick={onLock}>Fund</Button>
+						</form>
+					)}
 				</div>
 			</main>
 		</div>

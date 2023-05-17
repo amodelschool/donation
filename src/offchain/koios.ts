@@ -1,4 +1,4 @@
 import { KoiosProvider } from '@harmoniclabs/koios-pluts';
-import { network } from './config';
-export const koios = new KoiosProvider(network);
+import { provider } from './config';
+export const koios = new KoiosProvider(provider);
 export default koios;

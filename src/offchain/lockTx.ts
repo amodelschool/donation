@@ -10,8 +10,10 @@ import koios from './koios';
 import { toPlutsUtxo } from './mesh-utils';
 import { scriptAddr } from '../../contracts/mip';
 
-async function getLockTx( wallet: BrowserWallet ): Promise<Tx>
+async function getLockTx( wallet: BrowserWallet, amount: string ): Promise<Tx>
 {
+	const amountLovelace = parseInt( amount ) * 1000000;
+
 	// creates an address from the bech32 form
 	const myAddr = Address.fromString(
 		await wallet.getChangeAddress()
@@ -25,7 +27,7 @@ async function getLockTx( wallet: BrowserWallet ): Promise<Tx>
 		throw new Error('Have you requested funds from the faucet?');
 	}
 
-	const utxo = myUTxOs.find( u => u.resolved.value.lovelaces > 2_000_000 );
+	const utxo = myUTxOs.find( u => u.resolved.value.lovelaces > amountLovelace );
 
 	if( utxo === undefined )
 	{
@@ -37,24 +39,23 @@ async function getLockTx( wallet: BrowserWallet ): Promise<Tx>
 		outputs: [
 			{ // output holding the funds that we'll spend later
 				address: scriptAddr,
-				// 1MM lovelace == 1 ADA
-				value: Value.lovelaces( 1_000_000 ),
+				value: Value.lovelaces( amountLovelace ),
 				// remember to include a datum
 				datum: new DataB(
-					// remember we set the datum to be the public key hash?
-					// we can extract it from the address as follows
+					// datum set to be the public key hash
+					// it can be extracted from the address
 					myAddr.paymentCreds.hash.toBuffer()
 				)
 			}
 		],
-		// send everything left back to us
+		// send everything remaining back to originator
 		changeAddress: myAddr
 	});
 }
 
-export async function lockTx( wallet: BrowserWallet): Promise<string>
+export async function lockTx( wallet: BrowserWallet, amount: string): Promise<string>
 {
-	const unsingedTx = await getLockTx( wallet );
+	const unsingedTx = await getLockTx( wallet, amount );
 
 	const txStr = await wallet.signTx(
 		unsingedTx.toCbor().toString()

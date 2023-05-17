@@ -11,15 +11,17 @@ import { koios } from './koios';
 import { toPlutsUtxo } from './mesh-utils';
 import { script, scriptAddr } from '../../contracts/mip';
 
-async function getUnlockTx( wallet: BrowserWallet ): Promise<Tx>
+async function getUnlockTx( wallet: BrowserWallet, score: string ): Promise<Tx>
 {
 	const myAddrs = (await wallet.getUsedAddresses()).map( Address.fromString );
 	
 	const txBuilder = await getTxBuilder();
 	const myUTxOs = (await wallet.getUtxos()).map( toPlutsUtxo );
+	// const scoreStr = fromAscii( 's' + score );
+	const scoreInt = Number(score);
 
 	/**
-	 * Wallets might have multiple addresses;
+	 * Wallets may have multiple addresses;
 	 * 
 	 * to understand which one we previously used to lock funds
 	 * we'll get the address based on the utxo that keeps one of our
@@ -71,21 +73,21 @@ async function getUnlockTx( wallet: BrowserWallet ): Promise<Tx>
 				inputScript: {
 					script,
 					datum: 'inline', // the datum is present already on `utxoToSpend`
-					redeemer: new DataB( fromAscii('test') ) // match the redeemer
+					redeemer: scoreInt.toFixed(0), // match the redeemer
 				}
 			}
 		],
 		requiredSigners: [ myAddr.paymentCreds.hash ],
-		// make sure to include collateral when using contracts
+		// include collateral when using contracts
 		collaterals: [ myUTxOs[0] ],
 		// send everything back to us
 		changeAddress: myAddr
 	});
 }
 
-export async function unlockTx( wallet: BrowserWallet ): Promise<string>
+export async function unlockTx( wallet: BrowserWallet, score: string ): Promise<string>
 {
-	const unsingedTx = await getUnlockTx( wallet );
+	const unsingedTx = await getUnlockTx( wallet, score );
 
 	const txStr = await wallet.signTx(
 		unsingedTx.toCbor().toString(),
