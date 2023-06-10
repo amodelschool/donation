@@ -2,3 +2,16 @@ input {
 	height: 2em;
 	margin: 4em 0;
 }
+
+.main {
+	margin: 0 auto;
+	max-width: 50rem;
+}
+
+.demo {
+	margin-top: 1rem !important;
+
+	& p {
+		font-size: smaller;
+	}
+}

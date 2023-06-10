@@ -28,3 +28,11 @@ Total reward distributed will be the ADA equivalent of 1000 rand (currently ~142
 10% - divided among 5x iTeam assistants (2% ea.)
 80% - divided among 25x students (3.2% ea.)
 05% - MCA Treasury
+
+### Donation
+
+Donor connects wallet, specifies amount and submits donation.
+Donation is held in escrow until the condition is met.
+Funds will be distributed monthly upon verification of fulfillment of the obligation until funds are expended.
+Currently, the distributions are scheduled over a five-month period in increments of 20% of the total donation.
+*For testing purposes, the remaining amount is returned rather than waiting for the five month period.
