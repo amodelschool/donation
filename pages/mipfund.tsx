@@ -33,8 +33,7 @@ export default function Home()
 		}
 	}
 
-	function onLock()
-	{
+	const onLock = () => {
 		localStorage.setItem('amount', amount);
 		lockTx( wallet, amount )
 		// lock transaction created successfully

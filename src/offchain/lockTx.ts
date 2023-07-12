@@ -29,7 +29,7 @@ async function getLockTx( wallet: BrowserWallet, amount: string ): Promise<Tx>
 
 	const utxo = myUTxOs.find( u => u.resolved.value.lovelaces > amountLovelace );
 
-	if( utxo === undefined )
+	if ( utxo === undefined )
 	{
 		throw 'not enough ada';
 	}
