@@ -3,7 +3,7 @@ import { CardanoWallet, useWallet } from '@meshsdk/react';
 import Head from 'next/head';
 import { useState } from "react";
 import { Transaction } from '@meshsdk/core';
-import { unlockTx } from '../src/offchain/unlockTx';
+import { unlockTx } from '../src/offchain/unlockTxMath6';
 import { network } from '../src/offchain/config';
 import { receivingAddresses } from "../src/offchain/receivingAddresses";
 
@@ -50,8 +50,8 @@ export default function Home()
 			const amount1 = (totalLovelace * 0.05).toString();
 			// iTeam members (x5)
 			const amount2 = (totalLovelace * 0.02).toString();
-			// students (x25)
-			const amount3 = (totalLovelace * 0.032).toString();
+			// students (x19)
+			const amount3 = (totalLovelace * 0.0421).toString();
 			// MCA Treasury
 			const amount4 = (totalLovelace * 0.05).toString();
 
@@ -90,103 +90,79 @@ export default function Home()
 					amount2
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student1,
+					receivingAddresses.mainMath6Student1,
 					amount3
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student2,
+					receivingAddresses.mainMath6Student2,
 					amount3
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student3,
+					receivingAddresses.mainMath6Student3,
 					amount3
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student4,
+					receivingAddresses.mainMath6Student4,
 					amount3
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student5,
+					receivingAddresses.mainMath6Student5,
 					amount3
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student6,
+					receivingAddresses.mainMath6Student6,
 					amount3
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student7,
+					receivingAddresses.mainMath6Student7,
 					amount3
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student8,
+					receivingAddresses.mainMath6Student8,
 					amount3
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student9,
+					receivingAddresses.mainMath6Student9,
 					amount3
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student10,
+					receivingAddresses.mainMath6Student10,
 					amount3
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student11,
+					receivingAddresses.mainMath6Student11,
 					amount3
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student12,
+					receivingAddresses.mainMath6Student12,
 					amount3
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student13,
+					receivingAddresses.mainMath6Student13,
 					amount3
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student14,
+					receivingAddresses.mainMath6Student14,
 					amount3
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student15,
+					receivingAddresses.mainMath6Student15,
 					amount3
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student16,
+					receivingAddresses.mainMath6Student16,
 					amount3
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student17,
+					receivingAddresses.mainMath6Student17,
 					amount3
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student18,
+					receivingAddresses.mainMath6Student18,
 					amount3
 				)
 				.sendLovelace(
-					receivingAddresses.mainMath5Student19,
-					amount3
-				)
-				.sendLovelace(
-					receivingAddresses.mainMath5Student20,
-					amount3
-				)
-				.sendLovelace(
-					receivingAddresses.mainMath5Student21,
-					amount3
-				)
-				.sendLovelace(
-					receivingAddresses.mainMath5Student22,
-					amount3
-				)
-				.sendLovelace(
-					receivingAddresses.mainMath5Student23,
-					amount3
-				)
-				.sendLovelace(
-					receivingAddresses.mainMath5Student24,
-					amount3
-				)
-				.sendLovelace(
-					receivingAddresses.mainMath5Student25,
+					receivingAddresses.mainMath6Student19,
 					amount3
 				)
 				.sendLovelace(
@@ -225,7 +201,7 @@ export default function Home()
 	return (
 		<div className='container'>
 			<Head>
-				<title>Fulfill Math Improvement Program - 5th Grade</title>
+				<title>Fulfill Math Improvement Program - 6th Grade</title>
 				<link rel="shortcut icon" href="/static/favicon.ico" />
 				<link
 					href="https://meshjs.dev/css/template.css"
@@ -235,7 +211,7 @@ export default function Home()
 			</Head>
 
 			<main className="main">
-				<h1 className="title">Math Improvement Program<br/>5th Grade</h1>
+				<h1 className="title">Math Improvement Program<br/>6th Grade</h1>
 
 				{(!connected && !showComplete) && (
 					<>

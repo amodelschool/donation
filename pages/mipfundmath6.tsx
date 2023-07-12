@@ -2,7 +2,7 @@ import { Button, useToast } from '@chakra-ui/react';
 import { CardanoWallet, useWallet } from '@meshsdk/react';
 import Head from 'next/head';
 import { useState } from "react";
-import { lockTx } from '../src/offchain/lockTx';
+import { lockTx } from '../src/offchain/lockTxMath6';
 import { network } from '../src/offchain/config';
 
 export default function Home()
@@ -54,7 +54,7 @@ export default function Home()
 	return (
 		<div className='container'>
 			<Head>
-				<title>Fund Math Improvement Program - 5th Grade</title>
+				<title>Fund Math Improvement Program - 6th Grade</title>
 				<link rel="shortcut icon" href="/static/favicon.ico" />
 				<link
 					href="https://meshjs.dev/css/template.css"
@@ -64,7 +64,7 @@ export default function Home()
 			</Head>
 
 			<main className="main">
-				<h1 className="title">Math Improvement Program<br/>5th Grade</h1>
+				<h1 className="title">Math Improvement Program<br/>6th Grade</h1>
 
 				{(!connected && !showComplete) && (
 					<>

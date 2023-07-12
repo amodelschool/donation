@@ -9,7 +9,7 @@ import { BrowserWallet } from '@meshsdk/core';
 import getTxBuilder from './getTxBuilder';
 import { koios } from './koios';
 import { toPlutsUtxo } from './mesh-utils';
-import { script, scriptAddr } from '../../contracts/mip';
+import { script, scriptAddr } from '../../contracts/mipmath6';
 
 async function getUnlockTx( wallet: BrowserWallet, score: string ): Promise<Tx>
 {
