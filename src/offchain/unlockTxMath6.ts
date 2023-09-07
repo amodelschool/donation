@@ -12,7 +12,7 @@ async function getUnlockTx(wallet: BrowserWallet, score: string): Promise<Tx> {
 	const txBuilder = await getTxBuilder();
 	const myUTxOs = (await wallet.getUtxos()).map(toPlutsUtxo);
 	// const scoreStr = fromAscii( 's' + score );
-	const scoreInt = Number(score);
+	const scoreNum = Number(score);
 
 	/**
 	 * Wallets may have multiple addresses;
@@ -57,7 +57,7 @@ async function getUnlockTx(wallet: BrowserWallet, score: string): Promise<Tx> {
 	}
 
 	// TODO: temp code for test run. this logic will ultimately live in the contract
-	const scoreBoolStr = scoreInt >= 73 ? 'true' : 'false';
+	const scoreBoolStr = scoreNum >= 73 ? 'true' : 'false';
 	return txBuilder.buildSync({
 		inputs: [
 			{
@@ -67,7 +67,7 @@ async function getUnlockTx(wallet: BrowserWallet, score: string): Promise<Tx> {
 					script,
 					datum: 'inline', // the datum is present already on `utxoToSpend`
 					redeemer: new DataB(fromAscii(scoreBoolStr)),
-					// redeemer: scoreInt.toFixed(0), // match the redeemer
+					// redeemer: scoreNum.toFixed(0), // match the redeemer
 				},
 			},
 		],
@@ -83,12 +83,14 @@ export async function unlockTx(
 	wallet: BrowserWallet,
 	score: string
 ): Promise<string> {
-	const unsingedTx = await getUnlockTx(wallet, score);
+	const unsignedTx = await getUnlockTx(wallet, score);
+	console.log('unsignedTx', unsignedTx);
 
 	const txStr = await wallet.signTx(
-		unsingedTx.toCbor().toString(),
+		unsignedTx.toCbor().toString(),
 		true // partial sign because we have smart contracts in the transaction
 	);
+	console.log('txStr', txStr);
 
 	return (await koios.tx.submit(Tx.fromCbor(txStr))).toString();
 }

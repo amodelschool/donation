@@ -1,5 +1,5 @@
 // "mainnet | "testnet"
-export const network = 'mainnet';
+export const network = 'testnet';
 
 // "mainnet | "testnet" | "preprod" | "preview";
-export const provider = 'mainnet';
+export const provider = 'preprod';

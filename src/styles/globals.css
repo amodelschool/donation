@@ -1,3 +1,13 @@
+a,
+a:visited {
+	color: lightsteelblue;
+	cursor: pointer;
+}
+
+a:hover {
+	color: #ff0;
+}
+
 input {
 	height: 2em;
 	margin: 4em 0;

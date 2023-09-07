@@ -1,30 +1,30 @@
 import { Button, useToast } from '@chakra-ui/react';
 import { CardanoWallet, useWallet } from '@meshsdk/react';
 import Head from 'next/head';
-import { useState } from "react";
+import { useState } from 'react';
 import { lockTx } from '../src/offchain/lockTx';
 import { network } from '../src/offchain/config';
 
-export default function Home()
-{
+export default function Home() {
 	const { wallet, connected } = useWallet();
 	const toast = useToast();
-	const cardanoscanPrefix = network.toString() === 'mainnet' ? '' : 'preprod.';
+	const cardanoscanPrefix =
+		network.toString() === 'mainnet' ? '' : 'preprod.';
 	const [showComplete, setShowComplete] = useState<boolean>(false);
 	const [loading, setLoading] = useState<boolean>(false);
 	const [amount, setAmount] = useState('');
 
-	const handleAmountChange = (event:any) => {
+	const handleAmountChange = (event: any) => {
 		const value = event.target.value;
 		if (!isNaN(value)) {
 			setAmount(value);
 		}
-	}
+	};
 
-	const handleSubmit = (event:any) => {
+	const handleSubmit = (event: any) => {
 		event.preventDefault();
 		getAssets();
-	}
+	};
 
 	async function getAssets() {
 		if (wallet) {
@@ -35,24 +35,26 @@ export default function Home()
 
 	const onLock = () => {
 		localStorage.setItem('amount', amount);
-		lockTx( wallet, amount )
-		// lock transaction created successfully
-		.then( txHash => toast({
-			title: `lock tx submitted: https://${cardanoscanPrefix}cardanoscan.io/transaction/${txHash}`,
-			status: 'success'
-		}))
-		// lock transaction failed
-		.catch( e => {
-			toast({
-				title: `lock transaction failed`,
-				status: 'error'
+		lockTx(wallet, amount)
+			// lock transaction created successfully
+			.then((txHash) =>
+				toast({
+					title: `lock tx submitted: https://${cardanoscanPrefix}cardanoscan.io/transaction/${txHash}`,
+					status: 'success',
+				})
+			)
+			// lock transaction failed
+			.catch((e) => {
+				toast({
+					title: `lock transaction failed`,
+					status: 'error',
+				});
+				console.error(e);
 			});
-			console.error( e )
-		});
-	}
+	};
 
 	return (
-		<div className='container'>
+		<div className="container">
 			<Head>
 				<title>Fund Math Improvement Program - 5th Grade</title>
 				<link rel="shortcut icon" href="/static/favicon.ico" />
@@ -64,15 +66,18 @@ export default function Home()
 			</Head>
 
 			<main className="main">
-				<h1 className="title">Math Improvement Program<br/>5th Grade</h1>
+				<h1 className="title">MIP: 5th Grade</h1>
 
-				{(!connected && !showComplete) && (
+				{!connected && !showComplete && (
 					<>
-						<h2 className="thin">Connect your Cardano wallet to fund the smart contract.</h2>
+						<h2 className="thin">
+							Connect your Cardano wallet to fund the smart
+							contract.
+						</h2>
 					</>
 				)}
 
-				{(connected && !showComplete) && (
+				{connected && !showComplete && (
 					<>
 						<h2 className="thin">Enter the funding amount.</h2>
 					</>
@@ -80,26 +85,34 @@ export default function Home()
 
 				{showComplete && (
 					<>
-						<h2 className="thin">After signing, please alow a few minutes for the funding to hit the blockchain.</h2>
+						<h2 className="thin">
+							After signing, please alow a few minutes for the
+							funding to hit the blockchain.
+						</h2>
 					</>
 				)}
 
 				<div className="demo">
-					{!showComplete && (
-						<CardanoWallet />
-					)}
-					
+					{!showComplete && <CardanoWallet />}
 
-					{(connected && !showComplete) && (
+					{connected && !showComplete && (
 						<form onSubmit={handleSubmit}>
 							<div>
-								<input className="amount" type="number" placeholder="ADA" value={amount} onChange={handleAmountChange} />
+								<input
+									className="amount"
+									type="number"
+									placeholder="ADA"
+									value={amount}
+									onChange={handleAmountChange}
+								/>
 							</div>
-							<Button type='submit' onClick={onLock}>Fund</Button>
+							<Button type="submit" onClick={onLock}>
+								Fund
+							</Button>
 						</form>
 					)}
 				</div>
 			</main>
 		</div>
-	)
+	);
 }
