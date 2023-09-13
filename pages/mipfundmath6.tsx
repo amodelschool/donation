@@ -34,7 +34,7 @@ export default function Home() {
 	}
 
 	const onLock = () => {
-		localStorage.setItem('amount', amount);
+		localStorage.setItem('amount_mipmath6', amount);
 		lockTx(wallet, amount)
 			// lock transaction created successfully
 			.then((txHash) =>

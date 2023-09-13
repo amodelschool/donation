@@ -38,7 +38,9 @@ export default function Home() {
 		if (wallet) {
 			const _assets = await wallet.getAssets();
 			// TODO: retrieve original funded amount from contract, not just remaining amount. This total may need to be written as metadata to the contract.
-			const totalAmount = localStorage.getItem('amount');
+			const totalAmount = localStorage.getItem(
+				'amount_conditionaldonation'
+			);
 
 			const amount = Number(totalAmount) / 5;
 			setAssets(_assets);
@@ -46,8 +48,9 @@ export default function Home() {
 			const totalLovelace = (Number(amount) * 1000000).toString();
 
 			const tx = new Transaction({ initiator: wallet }).sendLovelace(
-				// receivingAddresses.mainMcaTreasury,
-				receivingAddresses.testMcaTreasury,
+				// receivingAddresses.mainTest,
+				receivingAddresses.mainMcaTreasury,
+				// receivingAddresses.testMcaTreasury,
 				totalLovelace
 			);
 

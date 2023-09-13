@@ -35,7 +35,7 @@ const Donate: NextPage = () => {
 	}
 
 	const onLock = () => {
-		localStorage.setItem('amount', amount);
+		localStorage.setItem('amount_conditionaldonation', amount);
 		lockTx(wallet, amount)
 			// lock transaction created successfully
 			.then((txHash) =>

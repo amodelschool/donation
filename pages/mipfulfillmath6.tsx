@@ -40,7 +40,7 @@ export default function Home() {
 		if (wallet) {
 			// setLoading(true);
 			// TODO: retrieve funded amount a different way because fulfill may be done from a different machine than funding
-			const amount = localStorage.getItem('amount');
+			const amount = localStorage.getItem('amount_mipmath6');
 			const _assets = await wallet.getAssets();
 			setAssets(_assets);
 			setLoading(false);
