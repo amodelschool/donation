@@ -84,13 +84,11 @@ export async function unlockTx(
 	score: string
 ): Promise<string> {
 	const unsignedTx = await getUnlockTx(wallet, score);
-	console.log('unsignedTx', unsignedTx);
 
 	const txStr = await wallet.signTx(
 		unsignedTx.toCbor().toString(),
 		true // partial sign because we have smart contracts in the transaction
 	);
-	console.log('txStr', txStr);
 
 	return (await koios.tx.submit(Tx.fromCbor(txStr))).toString();
 }
