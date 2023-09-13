@@ -1,5 +1,7 @@
 export const receivingAddresses = {
 	// mainnet wallets
+	mainTest:
+		'addr1qy09nfu3s22lva3hrga8pwke4686rxlu35qak5zg9s4uahvfw5dq7tns33pyvkedd8nxxy94hr7gjxzvv5zp9l9sxelqp9ad3h',
 	mainMcaTreasury:
 		'addr1q8tytnpwzzk4u3q9vg2gwht2lh8egmdrap02qlxz3x32z3zkndgvuql6gynlq7mlv5geelcz83lzvjer59cpc3zmpu0q29f7x4',
 	// Cinderella Makgoba
