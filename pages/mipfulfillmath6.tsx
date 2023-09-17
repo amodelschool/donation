@@ -83,46 +83,16 @@ export default function Home() {
 					.sendLovelace(receivingAddresses.mainMath6Student7, amount3)
 					.sendLovelace(receivingAddresses.mainMath6Student8, amount3)
 					.sendLovelace(receivingAddresses.mainMath6Student9, amount3)
-					.sendLovelace(
-						receivingAddresses.mainMath6Student10,
-						amount3
-					)
-					.sendLovelace(
-						receivingAddresses.mainMath6Student11,
-						amount3
-					)
-					.sendLovelace(
-						receivingAddresses.mainMath6Student12,
-						amount3
-					)
-					.sendLovelace(
-						receivingAddresses.mainMath6Student13,
-						amount3
-					)
-					.sendLovelace(
-						receivingAddresses.mainMath6Student14,
-						amount3
-					)
-					.sendLovelace(
-						receivingAddresses.mainMath6Student15,
-						amount3
-					)
-					.sendLovelace(
-						receivingAddresses.mainMath6Student16,
-						amount3
-					)
-					.sendLovelace(
-						receivingAddresses.mainMath6Student17,
-						amount3
-					)
-					.sendLovelace(
-						receivingAddresses.mainMath6Student18,
-						amount3
-					)
-					.sendLovelace(
-						receivingAddresses.mainMath6Student19,
-						amount3
-					)
+					.sendLovelace(receivingAddresses.mainMath6Student10, amount3)
+					.sendLovelace(receivingAddresses.mainMath6Student11, amount3)
+					.sendLovelace(receivingAddresses.mainMath6Student12, amount3)
+					.sendLovelace(receivingAddresses.mainMath6Student13, amount3)
+					.sendLovelace(receivingAddresses.mainMath6Student14, amount3)
+					.sendLovelace(receivingAddresses.mainMath6Student15, amount3)
+					.sendLovelace(receivingAddresses.mainMath6Student16, amount3)
+					.sendLovelace(receivingAddresses.mainMath6Student17, amount3)
+					.sendLovelace(receivingAddresses.mainMath6Student18, amount3)
+					.sendLovelace(receivingAddresses.mainMath6Student19, amount3)
 					.sendLovelace(receivingAddresses.mainMcaTreasury, amount4);
 			}
 

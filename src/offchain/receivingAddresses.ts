@@ -102,7 +102,7 @@ export const receivingAddresses = {
 	mainMath6Student16:
 		'addr1qxaw3xg07v4dp02m9faxz58cz7tjt6vcdpt4nn67m5rfpsdntg5n64v0wvzq0szmwap24szs5apak4kpyzt9xvatjsuqeen4q3',
 	mainMath6Student17:
-		'addr1q83eny9a07fzvnhdc5y06q7smk5hwlgpyfvtpwu4xtuaf9t46sd6hnu9rt7hl9xw8lecacdr44mdclyd269dfhy95prqgr286',
+		'addr1q83eny9a07fzvnhdc5y06q7smk5hwlgpyfvtpwu4xtuaf9t46sd6hnu9rt7hl9xw8lecacdr44mdclyd269dfhy95prqgr2860',
 	mainMath6Student18:
 		'addr1qxe00xvwmylhgp6d7pyz9u4rsx3c4lr3jvpwhhk75sh5rzkcqr7pljgu2qkdqe6el54d0tly0r4nxpujyuf282zp9l4qgrs5f8',
 	mainMath6Student19:
