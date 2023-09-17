@@ -56,40 +56,75 @@ export default function Home() {
 			const amount3 = (totalLovelace * 0.0421).toString();
 			// MCA Treasury
 			const amount4 = (totalLovelace * 0.05).toString();
+			// transaction
+			let tx;
 
-			/* testnet
-			const tx = new Transaction({ initiator: wallet }).sendLovelace(
-				receivingAddresses.testMcaTreasury,
-				amountTest
-			); */
-			/* mainnet */
-			const tx = new Transaction({ initiator: wallet })
-				.sendLovelace(receivingAddresses.mainTeacher, amount1)
-				.sendLovelace(receivingAddresses.mainITeamMember1, amount2)
-				.sendLovelace(receivingAddresses.mainITeamMember2, amount2)
-				.sendLovelace(receivingAddresses.mainITeamMember3, amount2)
-				.sendLovelace(receivingAddresses.mainITeamMember4, amount2)
-				.sendLovelace(receivingAddresses.mainITeamMember5, amount2)
-				.sendLovelace(receivingAddresses.mainMath6Student1, amount3)
-				.sendLovelace(receivingAddresses.mainMath6Student2, amount3)
-				.sendLovelace(receivingAddresses.mainMath6Student3, amount3)
-				.sendLovelace(receivingAddresses.mainMath6Student4, amount3)
-				.sendLovelace(receivingAddresses.mainMath6Student5, amount3)
-				.sendLovelace(receivingAddresses.mainMath6Student6, amount3)
-				.sendLovelace(receivingAddresses.mainMath6Student7, amount3)
-				.sendLovelace(receivingAddresses.mainMath6Student8, amount3)
-				.sendLovelace(receivingAddresses.mainMath6Student9, amount3)
-				.sendLovelace(receivingAddresses.mainMath6Student10, amount3)
-				.sendLovelace(receivingAddresses.mainMath6Student11, amount3)
-				.sendLovelace(receivingAddresses.mainMath6Student12, amount3)
-				.sendLovelace(receivingAddresses.mainMath6Student13, amount3)
-				.sendLovelace(receivingAddresses.mainMath6Student14, amount3)
-				.sendLovelace(receivingAddresses.mainMath6Student15, amount3)
-				.sendLovelace(receivingAddresses.mainMath6Student16, amount3)
-				.sendLovelace(receivingAddresses.mainMath6Student17, amount3)
-				.sendLovelace(receivingAddresses.mainMath6Student18, amount3)
-				.sendLovelace(receivingAddresses.mainMath6Student19, amount3)
-				.sendLovelace(receivingAddresses.mainMcaTreasury, amount4);
+			if (network.toString() === 'testnet') {
+				// testnet
+				tx = new Transaction({ initiator: wallet }).sendLovelace(
+					receivingAddresses.testAModelSchool,
+					amountTest
+				);
+			} else {
+				/* mainnet */
+				tx = new Transaction({ initiator: wallet })
+					.sendLovelace(receivingAddresses.mainTeacher, amount1)
+					.sendLovelace(receivingAddresses.mainITeamMember1, amount2)
+					.sendLovelace(receivingAddresses.mainITeamMember2, amount2)
+					.sendLovelace(receivingAddresses.mainITeamMember3, amount2)
+					.sendLovelace(receivingAddresses.mainITeamMember4, amount2)
+					.sendLovelace(receivingAddresses.mainITeamMember5, amount2)
+					.sendLovelace(receivingAddresses.mainMath6Student1, amount3)
+					.sendLovelace(receivingAddresses.mainMath6Student2, amount3)
+					.sendLovelace(receivingAddresses.mainMath6Student3, amount3)
+					.sendLovelace(receivingAddresses.mainMath6Student4, amount3)
+					.sendLovelace(receivingAddresses.mainMath6Student5, amount3)
+					.sendLovelace(receivingAddresses.mainMath6Student6, amount3)
+					.sendLovelace(receivingAddresses.mainMath6Student7, amount3)
+					.sendLovelace(receivingAddresses.mainMath6Student8, amount3)
+					.sendLovelace(receivingAddresses.mainMath6Student9, amount3)
+					.sendLovelace(
+						receivingAddresses.mainMath6Student10,
+						amount3
+					)
+					.sendLovelace(
+						receivingAddresses.mainMath6Student11,
+						amount3
+					)
+					.sendLovelace(
+						receivingAddresses.mainMath6Student12,
+						amount3
+					)
+					.sendLovelace(
+						receivingAddresses.mainMath6Student13,
+						amount3
+					)
+					.sendLovelace(
+						receivingAddresses.mainMath6Student14,
+						amount3
+					)
+					.sendLovelace(
+						receivingAddresses.mainMath6Student15,
+						amount3
+					)
+					.sendLovelace(
+						receivingAddresses.mainMath6Student16,
+						amount3
+					)
+					.sendLovelace(
+						receivingAddresses.mainMath6Student17,
+						amount3
+					)
+					.sendLovelace(
+						receivingAddresses.mainMath6Student18,
+						amount3
+					)
+					.sendLovelace(
+						receivingAddresses.mainMath6Student19,
+						amount3
+					)
+					.sendLovelace(receivingAddresses.mainMcaTreasury, amount4);
+			}
 
 			const unsignedTx = await tx.build();
 			const signedTx = await wallet.signTx(unsignedTx);
