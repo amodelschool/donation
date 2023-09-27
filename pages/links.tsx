@@ -40,7 +40,29 @@ const Index: NextPage = () => {
 						</a>
 					</p>
 					<p>
-						Pen Pal Contract
+						Pen Pal 1 Fund
+						<br />
+						<a
+							href="https://cardanoams.com/penpal1fund"
+							target="_blank"
+							rel="noreferrer"
+						>
+							https://cardanoams.com/penpal1fund
+						</a>
+					</p>
+					<p>
+						Pen Pal 1 Fulfill
+						<br />
+						<a
+							href="https://cardanoams.com/penpal1fulfill"
+							target="_blank"
+							rel="noreferrer"
+						>
+							https://cardanoams.com/penpal1fulfill
+						</a>
+					</p>
+					<p>
+						Direct Donation to School
 						<br />
 						<a
 							href="https://cardanoams.com/donate"

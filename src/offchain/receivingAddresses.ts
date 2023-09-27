@@ -111,6 +111,8 @@ export const receivingAddresses = {
 		'addr1q9t5nglqtd25papp2zrp5w39xytyx96z40z9rpcgjetcjv5fw5dq7tns33pyvkedd8nxxy94hr7gjxzvv5zp9l9sxelqg0pz06',
 	mainDevTest2:
 		'addr1qy6apgt2r08cuq9t6cwhw54ar4s95qx3qqryd5h9e5nkflmdapm00fgfvpwdgkw08t2wwdve235sl8ghy7xmdfhfnf9s30zkzr',
+	mainJoyceMalinga:
+		'addr1q9zut9uad2s89xkwnzdxef2r85vnwyvq6kmps7uhmtpp3sejp5640tmyg47hy8tcyqdfy3fwke6mmtjx6tvhr5s7p8zslmmpa8',
 
 	// testnet wallets
 	testMcaTreasury:
