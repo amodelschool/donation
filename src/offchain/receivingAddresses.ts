@@ -38,7 +38,7 @@ export const receivingAddresses = {
 	mainMath5Student9:
 		'addr1qxvu2498jlqgfle8d4nvmcpsutdhglg8zdd3wdqjldhmtjm2a0vwnsapjgppsu0rzar03wljs9usmgk56stah09zkcns2nvxpv',
 	mainMath5Student10:
-		'addr1q8a2km2cc38qlsu6eutzx2n2m45kw48m2d48632uj2nm2g2lz0nvezeed4cnmxx2sf95hcy7hn3akx3tgmnrptds74lqxgv58w',
+		'addr1q8sah3tk3ud45t788kk7hln3ntrzp4662trh0w6rtu2cuxj77zw3ln7mhk9fr4u9y80g08lhv5fuv762d2gtxlx5a4ks5x80xj',
 	mainMath5Student11:
 		'addr1qypng60haw4x50ctvveqm0dv2cyyfzww6v6u7gyy7z09w24agc3ka7w056z4sq7qdemw4rxpna5eu23qq0trzl5tcg6q34ka9v',
 	mainMath5Student12:
