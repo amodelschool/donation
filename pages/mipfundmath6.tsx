@@ -86,7 +86,7 @@ export default function Home() {
 				{showComplete && (
 					<>
 						<h2 className="thin">
-							After signing, please alow a few minutes for the
+							After signing, please allow a few minutes for the
 							funding to hit the blockchain.
 						</h2>
 					</>
