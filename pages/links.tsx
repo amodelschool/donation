@@ -18,7 +18,7 @@ const Index: NextPage = () => {
 				<h2 className="title">Smart Contract Links</h2>
 				<div id="links">
 					<p>
-						Donor to School
+						Donor to School (5-month period)
 						<br />
 						<a
 							href="https://cardanoams.com/conditionaldonation"
@@ -39,6 +39,30 @@ const Index: NextPage = () => {
 							https://cardanoams.com/donationfulfill
 						</a>
 					</p>
+					<p></p>
+					<p>
+						Donor to School (6 or 12-month period)
+						<br />
+						<a
+							href="https://cardanoams.com/metereddonation"
+							target="_blank"
+							rel="noreferrer"
+						>
+							https://cardanoams.com/metereddonation
+						</a>
+					</p>
+					<p>
+						Donation Fulfillment
+						<br />
+						<a
+							href="https://cardanoams.com/metereddonationfulfill"
+							target="_blank"
+							rel="noreferrer"
+						>
+							https://cardanoams.com/metereddonationfulfill
+						</a>
+					</p>
+					<p></p>
 					<p>
 						Pen Pal 1 Fund
 						<br />
@@ -61,6 +85,7 @@ const Index: NextPage = () => {
 							https://cardanoams.com/penpal1fulfill
 						</a>
 					</p>
+					<p></p>
 					<p>
 						Direct Donation to School
 						<br />
@@ -72,6 +97,7 @@ const Index: NextPage = () => {
 							https://cardanoams.com/donate
 						</a>
 					</p>
+					<p></p>
 					<p>
 						MIP: 5th Grade (fund)
 						<br />
@@ -94,6 +120,7 @@ const Index: NextPage = () => {
 							https://cardanoams.com/mipfulfill
 						</a>
 					</p>
+					<p></p>
 					<p>
 						MIP: 6th Grade (fund)
 						<br />
