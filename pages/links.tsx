@@ -39,7 +39,7 @@ const Index: NextPage = () => {
 							https://cardanoams.com/donationfulfill
 						</a>
 					</p>
-					<p></p>
+					<p>&nbsp;</p>
 					<p>
 						Donor to School (6 or 12-month period)
 						<br />
@@ -62,7 +62,7 @@ const Index: NextPage = () => {
 							https://cardanoams.com/metereddonationfulfill
 						</a>
 					</p>
-					<p></p>
+					<p>&nbsp;</p>
 					<p>
 						Pen Pal 1 Fund
 						<br />
@@ -85,7 +85,7 @@ const Index: NextPage = () => {
 							https://cardanoams.com/penpal1fulfill
 						</a>
 					</p>
-					<p></p>
+					<p>&nbsp;</p>
 					<p>
 						Direct Donation to School
 						<br />
@@ -97,7 +97,7 @@ const Index: NextPage = () => {
 							https://cardanoams.com/donate
 						</a>
 					</p>
-					<p></p>
+					<p>&nbsp;</p>
 					<p>
 						MIP: 5th Grade (fund)
 						<br />
@@ -120,7 +120,7 @@ const Index: NextPage = () => {
 							https://cardanoams.com/mipfulfill
 						</a>
 					</p>
-					<p></p>
+					<p>&nbsp;</p>
 					<p>
 						MIP: 6th Grade (fund)
 						<br />

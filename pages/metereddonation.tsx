@@ -122,22 +122,22 @@ const Donate: NextPage = () => {
 					<div className="demo">
 						<form onSubmit={handleSubmit}>
 							<label>
-								Please select how many months you would like your donation distributed over.
+								Please select the number of months over which you would like your donation distributed.<br></br>
 								<input
 									className="term"
 									type="radio"
 									name="term"
 									onChange={handleTermChange}
 									checked={true}
-								/>
-								6 months
+								/> &nbsp;
+								6 months&nbsp;&nbsp;&nbsp;
 								<input
 									className="term"
 									type="radio"
 									name="term"
 									onChange={handleTermChange}
-								/>
-								12 months
+								/> &nbsp;
+								12 months<br></br><br></br>
 							</label>
 							<label>
 								Please enter the amount you would like to
