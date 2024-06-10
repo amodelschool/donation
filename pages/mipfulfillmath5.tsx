@@ -46,6 +46,8 @@ export default function Home() {
 			setLoading(false);
 			const totalLovelace = Number(amount) * 1000000;
 
+			// for testnet
+			const amount0 = totalLovelace.toString();
 			// teacher 5%
 			const amount1 = (totalLovelace * 0.05).toString();
 			// iTeam members 10% (x5)
@@ -55,15 +57,15 @@ export default function Home() {
 			// MCA Treasury 5%
 			const amount4 = (totalLovelace * 0.05).toString();
 
-			/* testnet
+			/* testnet */
 			const tx = new Transaction({ initiator: wallet })
 				.sendLovelace(
-					receivingAddresses.mainMcaTreasury,
-					amount1
+					receivingAddresses.testMcaTreasury,
+					amount0
 				)
 			;
-			*/
 
+			/* mainnet
 			const tx = new Transaction({ initiator: wallet })
 				.sendLovelace(receivingAddresses.mainTeacher, amount1)
 				.sendLovelace(receivingAddresses.mainITeamMember1, amount2)
@@ -98,7 +100,7 @@ export default function Home() {
 				.sendLovelace(receivingAddresses.mainMath5Student25, amount3)
 				.sendLovelace(receivingAddresses.mainMath5Student26, amount3)
 				.sendLovelace(receivingAddresses.mainMath5Student27, amount3)
-				.sendLovelace(receivingAddresses.mainMcaTreasury, amount4);
+				.sendLovelace(receivingAddresses.mainMcaTreasury, amount4); */
 
 			const unsignedTx = await tx.build();
 			const signedTx = await wallet.signTx(unsignedTx);
