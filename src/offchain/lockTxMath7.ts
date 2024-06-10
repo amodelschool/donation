@@ -3,7 +3,7 @@ import { BrowserWallet } from '@meshsdk/core';
 import getTxBuilder from './getTxBuilder';
 import koios from './koios';
 import { toPlutsUtxo } from './mesh-utils';
-import { scriptAddr } from '../../contracts/mip';
+import { scriptAddr } from '../../contracts/mipmath7';
 
 async function getLockTx(wallet: BrowserWallet, amount: string): Promise<Tx> {
 	const amountLovelace = parseInt(amount) * 1000000;

@@ -3,7 +3,7 @@ import { CardanoWallet, useWallet } from '@meshsdk/react';
 import Head from 'next/head';
 import { useState } from 'react';
 import { Transaction } from '@meshsdk/core';
-import { unlockTx } from '../src/offchain/unlockTxMath6';
+import { unlockTx } from '../src/offchain/unlockTxMath5';
 import { network } from '../src/offchain/config';
 import { receivingAddresses } from '../src/offchain/receivingAddresses';
 
@@ -38,69 +38,67 @@ export default function Home() {
 
 	async function distributeFunds() {
 		if (wallet) {
-			// setLoading(true);
+			//setLoading(true);
 			// TODO: retrieve funded amount a different way because fulfill may be done from a different machine than funding
-			const amount = localStorage.getItem('amount_mipmath6');
+			const amount = localStorage.getItem('amount_mipmath5');
 			const _assets = await wallet.getAssets();
 			setAssets(_assets);
 			setLoading(false);
 			const totalLovelace = Number(amount) * 1000000;
 
-			// testnet
-			const amountTest = totalLovelace.toString();
 			// teacher 5%
 			const amount1 = (totalLovelace * 0.05).toString();
 			// iTeam members 10% (x5)
 			const amount2 = (totalLovelace * 0.02).toString();
-			// students 80% (x25)
-			const amount3 = (totalLovelace * (.8 / 25)).toString();
+			// students 80% (x27)
+			const amount3 = (totalLovelace * (.8 / 27)).toString();
 			// MCA Treasury 5%
 			const amount4 = (totalLovelace * 0.05).toString();
-			// transaction
-			let tx;
 
-			if (network.toString() === 'testnet') {
-				// testnet
-				tx = new Transaction({ initiator: wallet }).sendLovelace(
-					receivingAddresses.testAModelSchool,
-					amountTest
-				);
-			} else {
-				/* mainnet */
-				tx = new Transaction({ initiator: wallet })
-					.sendLovelace(receivingAddresses.mainTeacher, amount1)
-					.sendLovelace(receivingAddresses.mainITeamMember1, amount2)
-					.sendLovelace(receivingAddresses.mainITeamMember2, amount2)
-					.sendLovelace(receivingAddresses.mainITeamMember3, amount2)
-					.sendLovelace(receivingAddresses.mainITeamMember4, amount2)
-					.sendLovelace(receivingAddresses.mainITeamMember5, amount2)
-					.sendLovelace(receivingAddresses.mainMath6Student1, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student2, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student3, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student4, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student5, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student6, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student7, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student8, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student9, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student10, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student11, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student12, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student13, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student14, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student15, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student16, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student17, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student18, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student19, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student20, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student21, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student22, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student23, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student24, amount3)
-					.sendLovelace(receivingAddresses.mainMath6Student25, amount3)
-					.sendLovelace(receivingAddresses.mainMcaTreasury, amount4);
-			}
+			/* testnet
+			const tx = new Transaction({ initiator: wallet })
+				.sendLovelace(
+					receivingAddresses.mainMcaTreasury,
+					amount1
+				)
+			;
+			*/
+
+			const tx = new Transaction({ initiator: wallet })
+				.sendLovelace(receivingAddresses.mainTeacher, amount1)
+				.sendLovelace(receivingAddresses.mainITeamMember1, amount2)
+				.sendLovelace(receivingAddresses.mainITeamMember2, amount2)
+				.sendLovelace(receivingAddresses.mainITeamMember3, amount2)
+				.sendLovelace(receivingAddresses.mainITeamMember4, amount2)
+				.sendLovelace(receivingAddresses.mainITeamMember5, amount2)
+				.sendLovelace(receivingAddresses.mainMath5Student1, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student2, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student3, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student4, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student5, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student6, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student7, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student8, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student9, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student10, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student11, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student12, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student13, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student14, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student15, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student16, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student17, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student18, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student19, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student20, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student21, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student22, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student23, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student24, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student25, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student26, amount3)
+				.sendLovelace(receivingAddresses.mainMath5Student27, amount3)
+				.sendLovelace(receivingAddresses.mainMcaTreasury, amount4);
 
 			const unsignedTx = await tx.build();
 			const signedTx = await wallet.signTx(unsignedTx);
@@ -133,7 +131,7 @@ export default function Home() {
 	return (
 		<div className="container">
 			<Head>
-				<title>Fulfill Math Improvement Program - 6th Grade</title>
+				<title>Fulfill Math Improvement Program - 5th Grade</title>
 				<link rel="shortcut icon" href="/static/favicon.ico" />
 				<link
 					href="https://meshjs.dev/css/template.css"
@@ -146,7 +144,7 @@ export default function Home() {
 				<h1 className="title">
 					Math Improvement Program
 					<br />
-					6th Grade
+					5th Grade
 				</h1>
 
 				{!connected && !showComplete && (

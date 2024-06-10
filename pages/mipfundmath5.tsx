@@ -2,7 +2,7 @@ import { Button, useToast } from '@chakra-ui/react';
 import { CardanoWallet, useWallet } from '@meshsdk/react';
 import Head from 'next/head';
 import { useState } from 'react';
-import { lockTx } from '../src/offchain/lockTx';
+import { lockTx } from '../src/offchain/lockTxMath5';
 import { network } from '../src/offchain/config';
 
 export default function Home() {

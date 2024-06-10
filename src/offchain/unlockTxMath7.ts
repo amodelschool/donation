@@ -4,7 +4,7 @@ import { BrowserWallet } from '@meshsdk/core';
 import getTxBuilder from './getTxBuilder';
 import { koios } from './koios';
 import { toPlutsUtxo } from './mesh-utils';
-import { script, scriptAddr } from '../../contracts/mip';
+import { script, scriptAddr } from '../../contracts/mipmath7';
 
 async function getUnlockTx(wallet: BrowserWallet, score: string): Promise<Tx> {
 	const myAddrs = (await wallet.getUsedAddresses()).map(Address.fromString);
@@ -57,7 +57,7 @@ async function getUnlockTx(wallet: BrowserWallet, score: string): Promise<Tx> {
 	}
 
 	// TODO: temp code for test run. this logic will ultimately live in the contract
-	const scoreBoolStr = scoreNum >= 70 ? 'true' : 'false';
+	const scoreBoolStr = scoreNum >= 73 ? 'true' : 'false';
 	return txBuilder.buildSync({
 		inputs: [
 			{

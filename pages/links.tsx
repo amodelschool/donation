@@ -102,22 +102,22 @@ const Index: NextPage = () => {
 						MIP: 5th Grade (fund)
 						<br />
 						<a
-							href="https://cardanoams.com/mipfund"
+							href="https://cardanoams.com/mipfundmath5"
 							target="_blank"
 							rel="noreferrer"
 						>
-							https://cardanoams.com/mipfund
+							https://cardanoams.com/mipfundmath5
 						</a>
 					</p>
 					<p>
 						MIP: 5th Grade (fulfill)
 						<br />
 						<a
-							href="https://cardanoams.com/mipfulfill"
+							href="https://cardanoams.com/mipfulfillmath5"
 							target="_blank"
 							rel="noreferrer"
 						>
-							https://cardanoams.com/mipfulfill
+							https://cardanoams.com/mipfulfillmath5
 						</a>
 					</p>
 					<p>&nbsp;</p>
@@ -141,6 +141,29 @@ const Index: NextPage = () => {
 							rel="noreferrer"
 						>
 							https://cardanoams.com/mipfulfillmath6
+						</a>
+					</p>
+					<p>&nbsp;</p>
+					<p>
+						MIP: 7th Grade (fund)
+						<br />
+						<a
+							href="https://cardanoams.com/mipfundmath7"
+							target="_blank"
+							rel="noreferrer"
+						>
+							https://cardanoams.com/mipfundmath7
+						</a>
+					</p>
+					<p>
+						MIP: 7th Grade (fulfill)
+						<br />
+						<a
+							href="https://cardanoams.com/mipfulfillmath7"
+							target="_blank"
+							rel="noreferrer"
+						>
+							https://cardanoams.com/mipfulfillmath7
 						</a>
 					</p>
 				</div>
